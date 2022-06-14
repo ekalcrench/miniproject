@@ -1,44 +1,121 @@
-.body{
-   font-family: 'Roboto';
-   height: 900px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+.body {
+  font-family: "Roboto";
+  height: 910px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form{
-   background-color: #FBFCFC;
-   width: 44%;
-   border-radius: 5px;
-   padding: 60px 0px;
+.form {
+  background-color: #fbfcfc;
+  width: 42%;
+  border-radius: 5px;
+  padding: 28px 0px;
 }
 
-.header{
-   width: 100%;
-   text-align: center;
-   margin-bottom: 30px;
+.formHeader {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 37px;
 }
 
-.judul{
-   font-size: 24px;
-   font-weight: 500;
-   letter-spacing: 1.2px;
+.formBody {
+  width: 48%;
+  display: flex;
+  margin: auto;
 }
 
-.login{
-   font-size: 14px;
-   margin-top: 5px;
-   letter-spacing: 0.1px;
+.judul {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
 }
 
-.link{
-   text-decoration: none;
-   color:#3D8461;
-   font-weight: 500;
+.keterangan {
+  font-size: 14px;
+  margin-top: 5px;
+  letter-spacing: 0.2px;
 }
 
-.input{
-   width: 100%;
-   display: flex;
-   justify-content: center;
+.link {
+  text-decoration: none;
+  color: #3d8461;
+  font-weight: 500;
+}
+
+.formInput {
+  margin-bottom: 14px;
+}
+
+.label {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.input {
+  height: 35px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #e9ecef;
+  margin-top: 7px;
+}
+
+.input::placeholder {
+  color: black;
+  opacity: 45%;
+  font-size: 15px;
+  font-family: "Roboto";
+  letter-spacing: 1px;
+  padding-left: 7px;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.errorMessage::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.textAlignCenter {
+  text-align: center;
+}
+
+.atauDaftarDenganMargin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.button {
+  font-family: "Roboto";
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+.microsoft {
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.imgMicrosoft {
+  height: 35px;
+  object-fit: scale-down;
+  margin-left: 10px;
+  margin-right: 64px;
+}
+
+.simpan {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.syaratDanKetentuanMargin {
+  margin-top: 15px;
 }

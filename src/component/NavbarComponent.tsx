@@ -62,7 +62,7 @@ export default function NavbarComponent() {
             WANITA
           </button>
           <div
-            className={`${navbar.dropdownContent} ${navbar.dropdownContentLeft} ${navbar.dropdownContentWanita}`}
+            className={`${navbar.dropdownContent} ${navbar.dropdownContentLeft}`}
           >
             <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
               TERBARU
@@ -93,7 +93,7 @@ export default function NavbarComponent() {
             ANAK
           </button>
           <div
-            className={`${navbar.dropdownContent} ${navbar.dropdownContentLeft} ${navbar.dropdownContentAnak}`}
+            className={`${navbar.dropdownContent} ${navbar.dropdownContentLeft}`}
           >
             <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
               TERBARU
