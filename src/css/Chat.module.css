@@ -1,0 +1,101 @@
+.body {
+  position: fixed;
+  bottom: 10px;
+  right: 90px;
+}
+
+.card {
+  /* X Y Blur (Spread) Color  */
+  box-shadow: 0px 0px 12px rgb(0 0 0 / 10%);
+  border-radius: 8px;
+  background-color: white;
+  height: 50px;
+  width: 120px;
+}
+
+.card:hover {
+  background-color: #fbfcfc;
+  cursor: pointer;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  border: inherit;
+  border-radius: inherit;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 35px;
+  margin-right: 7px;
+  margin-top: 7px;
+}
+
+.chat {
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-top: 7px;
+}
+
+.dropdownContent {
+  display: block;
+  position: absolute;
+  box-shadow: 0px 0px 12px rgb(0 0 0 / 10%);
+  border-radius: 8px;
+  background-color: white;
+  bottom: 0;
+  right: 0;
+  width: 500px;
+  height: 400px;
+}
+
+.dropdownContent:hover{
+   cursor: default;
+}
+
+.modalHeader {
+  display: flex;
+  border-bottom: 1px solid #E9ECEF;
+}
+
+.modalContent{
+   display: flex;
+}
+
+.buttonClose {
+  background-color: #ce0505;
+  border: none;
+  border-radius: 4px;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  right: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.buttonClose:hover {
+  cursor: pointer;
+}
+
+.leftChat {
+  width: 37%;
+  display: flex;
+  padding-left: 3%;
+}
+
+.rightChat {
+  width: 57%;
+  display: flex;
+  padding-left: 3%;
+  border-left: 1px solid #E9ECEF;
+}

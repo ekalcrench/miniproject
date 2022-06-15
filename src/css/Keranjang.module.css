@@ -1,0 +1,49 @@
+.body {
+  font-family: "Roboto";
+  display: block;
+  justify-content: center;
+  margin: 110px auto 50px;
+  width: 70%;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+
+.background {
+  background-color: #fbfcfc;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.header {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  
+}
+
+.content {
+  height: 200px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lanjutBelanja{
+   border: none;
+   border-radius: 15px;
+   box-shadow: 1px 2px 2px rgb(0, 0, 0, 16%);
+   background-color: inherit;
+   height: 40px;
+   width: 185px;
+   font-family: inherit;
+   font-size: inherit;
+   font-weight: inherit;
+}
+
+.lanjutBelanja:hover{
+   cursor: pointer;
+   background-color: #D4E4F1;
+}

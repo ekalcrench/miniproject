@@ -1,13 +1,37 @@
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { CardComponent} from "../component/PromoComponent";
 import NavbarComponent from "../component/NavbarComponent";
 import home from "../css/Home.module.css";
-import { BANNERS_PATH, PRODUCTS_PATH } from "../utils/images";
+import { API_URL } from "../utils/api";
+import { BANNERS_PATH } from "../utils/images";
+import ChatComponent from "../component/ChatComponent";
 
 export default function Home() {
+  // Produk Special
+  const [untukmu, setUntukmu] = useState<any>()
+  const [hariIni, setHariIni] = useState<any>()
+
+  useEffect(() => {
+    axios
+      .get(API_URL + "products")
+      .then((res) => {
+        setUntukmu(res.data);
+        setHariIni(res.data);
+        console.log("res data : ",res.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [])
+
   return (
     <div>
       <NavbarComponent />
+      <ChatComponent />
+      {/* Banner */}
       <div className={home.body}>
         <img
           className={home.imgBanner}
@@ -15,38 +39,46 @@ export default function Home() {
           alt="hype.jpg"
         ></img>
       </div>
+      {/* Special Untukmu */}
       <div className={`${home.body} ${home.promo}`}>
-        <div className={home.headerContent}>Special Untukmu</div>
+        <div className={home.headerContent}>SPECIAL UNTUKMU</div>
         <div className={home.content}>
+          {/* Panah Kiri */}
           <div className={home.panah}>
             <FontAwesomeIcon className={home.panahIcon} icon={faAngleLeft} />
           </div>
+          {/* Products */}
           <div className={home.produk}>
-            <div className={home.produkCard}>
-              <img
-                src={PRODUCTS_PATH + "hush-puppies-1.jpg"}
-                alt="hush-puppes-1.jpg"
-              ></img>
-            </div>
-            <div className={home.produkCard}>
-              <img
-                src={PRODUCTS_PATH + "hush-puppies-1.jpg"}
-                alt="hush-puppes-1.jpg"
-              ></img>
-            </div>
-            <div className={home.produkCard}>
-              <img
-                src={PRODUCTS_PATH + "hush-puppies-1.jpg"}
-                alt="hush-puppes-1.jpg"
-              ></img>
-            </div>
+            {untukmu?.map((data: any) => {
+              return <CardComponent key={data.id} data={data} />;
+            })}
           </div>
+          {/* Panah Kanan */}
+          <div className={home.panah}>
+              <FontAwesomeIcon className={home.panahIcon} icon={faAngleRight} />
+          </div>
+        </div>
+      </div>
+      {/* Special Hari Ini */}
+      <div className={`${home.body} ${home.promo}`}>
+        <div className={home.headerContent}>SPECIAL HARI INI</div>
+        <div className={home.content}>
+          {/* Panah Kiri */}
+          <div className={home.panah}>
+            <FontAwesomeIcon className={home.panahIcon} icon={faAngleLeft} />
+          </div>
+          {/* Products */}
+          <div className={home.produk}>
+            {hariIni?.map((data: any) => {
+              return <CardComponent key={data.id} data={data} />;
+            })}
+          </div>
+          {/* Panah Kanan */}
           <div className={home.panah}>
             <FontAwesomeIcon className={home.panahIcon} icon={faAngleRight} />
           </div>
         </div>
       </div>
-      <div className={`${home.body} ${home.promo}`}>Special Hari Ini</div>
     </div>
   );
 }
