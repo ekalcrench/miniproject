@@ -99,7 +99,7 @@
   position: absolute;
   background-color: white;
   box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.16);
-  margin-top: 160px;
+  margin-top: 100px;
 }
 
 .dropdownContentLeft {
@@ -107,6 +107,7 @@
   width: 100%;
   display: none;
   justify-content: center;
+  background-color: white;
   right: 0;
 }
 

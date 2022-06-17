@@ -144,10 +144,6 @@ export default function NavbarComponent() {
             <FontAwesomeIcon className={`${navbar.icon}`} icon={faUser} />
           </button>
           <div className={`${navbar.dropdownContent} `}>
-            <Link to="/daftar" className={`${navbar.link} ${navbar.linkRight}`}>
-              DAFTAR
-            </Link>
-            <hr/>
             <Link to="/login" className={`${navbar.link} ${navbar.linkRight}`}>
               LOG IN
             </Link>

@@ -4,6 +4,7 @@ import { numberWithDots } from "../utils/utils";
 
 type PropsType = {
   data: any;
+  masukKeranjang: any;
 };
 
 export const CardComponent = (props: PropsType) => {
@@ -11,8 +12,12 @@ export const CardComponent = (props: PropsType) => {
     ((props.data.harga_awal - props.data.harga_jual) / props.data.harga_awal) *
       100
   );
+
   return (
-    <div className={card.homeCard}>
+    <div
+      onClick={() => props.masukKeranjang(props.data.id)}
+      className={card.homeCard}
+    >
       <img
         className={card.homeImg}
         src={PRODUCTS_PATH + props.data.gambar}

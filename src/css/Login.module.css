@@ -1,6 +1,6 @@
 .body {
   font-family: "Roboto";
-  height: 910px;
+  height: 620px;
   margin-top: 55px;
   display: flex;
   justify-content: center;
@@ -26,13 +26,13 @@
   margin: auto;
 }
 
-.judul {
+.formHeaderJudul {
   font-size: 24px;
   font-weight: 500;
   letter-spacing: 1.2px;
 }
 
-.keterangan {
+.formHeaderKeterangan {
   font-size: 14px;
   margin-top: 5px;
   letter-spacing: 0.2px;
@@ -44,8 +44,31 @@
   font-weight: 500;
 }
 
+.formBodyForm{
+  width: 100%;
+}
+
 .formInput {
   margin-bottom: 14px;
+}
+
+.formPassword{
+  display: flex;
+  align-items: center;
+}
+
+.formPasswordIcon{
+  margin-top: 7px;
+  margin-left: 5px;
+}
+
+.formPasswordIcon:hover{
+  filter: invert(90%) sepia(15%) saturate(228%) hue-rotate(168deg) brightness(98%) contrast(92%);
+  cursor: pointer;
+}
+
+.formPasswordIconAktif{
+  filter: invert(90%) sepia(15%) saturate(228%) hue-rotate(168deg) brightness(98%) contrast(92%);
 }
 
 .label {
@@ -85,7 +108,7 @@
   text-align: center;
 }
 
-.atauDaftarDenganMargin {
+.atauLoginDengan {
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -95,6 +118,13 @@
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 15px;
+}
+
+.login {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 .microsoft {
@@ -108,15 +138,4 @@
   object-fit: scale-down;
   margin-left: 10px;
   margin-right: 64px;
-}
-
-.simpan {
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-.syaratDanKetentuanMargin {
-  margin-top: 15px;
 }

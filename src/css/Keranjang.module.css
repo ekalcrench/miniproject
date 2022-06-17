@@ -6,7 +6,6 @@
   width: 70%;
   font-size: 16px;
   letter-spacing: 0.2px;
-  font-weight: 500;
 }
 
 .background {
@@ -19,31 +18,214 @@
   height: 55px;
   display: flex;
   align-items: center;
-  padding-left: 30px;
-  
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.headerKosong{
+  padding-left: 25px;
 }
 
 .content {
-  height: 200px;
-  margin-top: 5px;
+  height: 250px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.contentKosong{
+  justify-content: center;
+}
+
+.footer{
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.lanjutBelanja {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 1px 2px 2px rgb(0, 0, 0, 16%);
+  background-color: inherit;
+  height: 40px;
+  width: 185px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.lanjutBelanja:hover {
+  background-color: #d4e4f1;
+}
+
+.select {
+  width: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox {
+  height: 18px;
+  width: 18px;
+}
+
+.checkbox:hover{
+  cursor: pointer;
+}
+
+.produk {
+  width: 42%;
+  display: flex;
+  align-items: center;
+}
+
+.produkImage{
+  width: 29%;
+  display: flex;
+  align-items: center;
+}
+
+.imgProduk {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.produkNama{
+  width: 46%;
+  line-height: 1.6;
+}
+
+.produkVariasi{
+  width: 25%;
+}
+
+.produkVariasiButton{
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  margin-left: 5px;
+}
+
+.produkVariasiIcon{
+  font-size: 20px;
+}
+
+.produkVariasiIcon:hover{
+  filter: invert(41%) sepia(29%) saturate(0%) hue-rotate(192deg) brightness(101%) contrast(96%);
+  opacity: 20%;
+}
+
+.hargaSatuan {
+  width: 13%;
+  display: flex;
+  justify-content: center;
+}
+
+.kuantitas {
+  width: 14%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.lanjutBelanja{
-   border: none;
-   border-radius: 15px;
-   box-shadow: 1px 2px 2px rgb(0, 0, 0, 16%);
-   background-color: inherit;
-   height: 40px;
-   width: 185px;
-   font-family: inherit;
-   font-size: inherit;
-   font-weight: inherit;
+.kuantitasButton{
+  width: 16%;
+  height: 23px;
+  margin: 0 10%;
+  background-color: white;
+  border: 1px solid #707070;
+  border-radius: 3px;
 }
 
-.lanjutBelanja:hover{
-   cursor: pointer;
-   background-color: #D4E4F1;
+.kuantitasButton:hover{
+  background-color: rgb(112, 112, 112, 20%);
+}
+
+.kuantitasInput{
+  width: 40%;
+  height: 27px;
+  margin: 0 -7%;
+  border: 1px solid #707070;
+  border-radius: 3px;
+  font-size: inherit;
+  font-family: inherit;
+  text-align: center;
+}
+
+/* Menghilangkan Arrow yang ada di Number Value */
+/* Chrome, Safari, Edge, Opera */
+.kuantitasInput::-webkit-outer-spin-button, .kuantitasInput::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+.kuantitasInput[type=number]{
+  -moz-appearance: textfield;
+}
+/* End */
+
+.totalHarga {
+  width: 13%;
+  display: flex;
+  justify-content: center;
+}
+
+.aksi {
+  width: 12%;
+  display: flex;
+  justify-content: center;
+}
+
+.aksiButton{
+  background-color: #CE0505;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  width: 70%;
+  height: 27px;
+}
+
+.aksiHapus{
+  width: 83%;
+}
+
+.aksiCheckout{
+  background-color: black;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+  width: 90%;
+  height: 27px;
+}
+
+.footerHapus{
+  width: 10%;
+}
+
+.footerCheckout{
+  width: 15%;
+}
+
+.footerTotalProduct{
+  justify-content: left;
+}
+
+.footerTotalHarga{
+  justify-content: left;
+  width: 12%;
+}
+
+
+/* Utils */
+
+button{
+  font-size: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+button:hover{
+  cursor: pointer;
 }
