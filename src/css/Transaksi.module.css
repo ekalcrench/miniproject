@@ -20,25 +20,16 @@
 }
 
 .colJudul{
-  width: 50%;
-}
-
-.colTersedia{
+  width: 20%;
   display: flex;
-  justify-content: right;
-  margin-right: 40px;
-}
-
-.colTidakTersedia{
-  display: flex;
-  margin-left: 40px;
+  justify-content: center;
 }
 
 .judulButton{
   border-radius: 12px;
   box-shadow: 0px 3px 6px rgb(0, 0, 0, 16%);
   border: none;
-  width: 40%;
+  width: 83%;
   height: 35px;
   background-color: white;
 }

@@ -1,5 +1,5 @@
 .nav {
-  position: fixed;
+  position: sticky;
   background-color: #e9ecef;
   display: flex;
   height: 55px;
@@ -65,13 +65,28 @@
   border: 1px solid #d7d9dd;
 }
 
+.input:focus {
+  color: black;
+  font-size: 17px;
+  font-family: "Roboto";
+  letter-spacing: 1.2px;
+  padding-left: 15px;
+}
+
+.input[type="text"] {
+  color: black;
+  font-size: 17px;
+  font-family: "Roboto";
+  letter-spacing: 1.2px;
+  padding-left: 15px;
+}
+
 .input::placeholder {
   color: black;
   opacity: 45%;
   font-size: 17px;
   font-family: "Roboto";
   letter-spacing: 1.2px;
-  padding-left: 8px;
 }
 
 .icon {
@@ -100,6 +115,10 @@
   background-color: white;
   box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.16);
   margin-top: 100px;
+}
+
+.dropdownContentDashboard{
+  margin-top: 205px;
 }
 
 .dropdownContentLeft {

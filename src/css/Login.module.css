@@ -84,13 +84,36 @@
   margin-top: 7px;
 }
 
+.input:focus{
+  color: black;
+  font-size: 15px;
+  font-family: "Roboto";
+  letter-spacing: 1px;
+  padding-left: 7px;
+}
+
+.input[type="text"]{
+  color: black;
+  font-size: 15px;
+  font-family: "Roboto";
+  letter-spacing: 1px;
+  padding-left: 7px;
+}
+
+.input[type="password"]{
+  color: black;
+  font-size: 15px;
+  font-family: "Roboto";
+  letter-spacing: 1px;
+  padding-left: 7px;
+}
+
 .input::placeholder {
   color: black;
   opacity: 45%;
   font-size: 15px;
   font-family: "Roboto";
   letter-spacing: 1px;
-  padding-left: 7px;
 }
 
 .errorMessage {

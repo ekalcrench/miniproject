@@ -4,6 +4,7 @@ import Login from "./pages/user/Login";
 import Keranjang from "./pages/Keranjang";
 import SyaratdanKetentuan from "./pages/prasyarat/SyaratdanKetentuan";
 import KebijakanPrivasi from "./pages/prasyarat/KebijakanPrivasi";
+import Transaksi from "./pages/user/Transaksi";
 
 export const routes = [
   {
@@ -25,6 +26,11 @@ export const routes = [
     path: "/profil",
     name: "Profil",
     element: <Profil />,
+  },
+  {
+    path: "/transaksi",
+    name: "Transaksi",
+    element: <Transaksi />,
   },
   {
     path: "/syaratdanketentuan",

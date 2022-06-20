@@ -58,8 +58,12 @@ export const KeranjangComponent = (props: PropsType) => {
         {/* Harga Satuan */}
         {props.data.product.harga_awal - props.data.product.harga_jual !== 0 ? (
           <div className={keranjang.hargaSatuan}>
-            <div>Rp {numberWithDots(props.data.product.harga_awal)}</div>
-            <div>Rp {numberWithDots(props.data.product.harga_jual)}</div>
+            <div className={keranjang.diskonStrip}>
+              Rp {numberWithDots(props.data.product.harga_awal)}
+            </div>
+            <div className={keranjang.diskon}>
+              Rp {numberWithDots(props.data.product.harga_jual)}
+            </div>
           </div>
         ) : (
           <div className={keranjang.hargaSatuan}>

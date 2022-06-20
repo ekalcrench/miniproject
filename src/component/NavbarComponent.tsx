@@ -2,10 +2,16 @@ import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import navbar from "../css/Navbar.module.css";
+import { setLogout } from "../features/userSlice";
 
 export default function NavbarComponent() {
   const [search, setSearch] = useState<string>("");
+  
+  // Redux
+  const dispatch = useAppDispatch();
+  const userIdLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -143,11 +149,39 @@ export default function NavbarComponent() {
           <button className={`${navbar.dropdownButton} `}>
             <FontAwesomeIcon className={`${navbar.icon}`} icon={faUser} />
           </button>
-          <div className={`${navbar.dropdownContent} `}>
-            <Link to="/login" className={`${navbar.link} ${navbar.linkRight}`}>
-              LOG IN
-            </Link>
-          </div>
+          {!userIdLoggedIn ? (
+            <div
+              className={`${navbar.dropdownContent} ${navbar.dropdownContentDashboard} `}
+            >
+              <Link
+                to="/profil"
+                className={`${navbar.link} ${navbar.linkRight}`}
+              >
+                PROFIL
+              </Link>
+              <Link
+                to="/transaksi"
+                className={`${navbar.link} ${navbar.linkRight}`}
+              >
+                TRANSAKSI
+              </Link>
+              <div
+                onClick={() => dispatch(setLogout())}
+                className={`${navbar.link} ${navbar.linkRight}`}
+              >
+                LOG OUT
+              </div>
+            </div>
+          ) : (
+            <div className={`${navbar.dropdownContent} `}>
+              <Link
+                to="/login"
+                className={`${navbar.link} ${navbar.linkRight}`}
+              >
+                LOG IN
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

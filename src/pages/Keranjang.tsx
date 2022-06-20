@@ -9,6 +9,7 @@ import { API_URL } from "../utils/api";
 
 export default function Keranjang() {
   const [keranjangs, setKeranjangs] = useState<any | null>(null);
+  const [tersedia, setTersedia] = useState<boolean>(true);
 
   // ComponentDidMount
   useLayoutEffect(() => {
@@ -29,10 +30,10 @@ export default function Keranjang() {
       });
   };
 
-  const handleDelete =  (id: number) => {
+  const handleDelete = (id: number) => {
     Swal.fire({
       title: "Apakah Anda Yakin?",
-      text:"Apakah Anda ingin menghapus produk dari keranjang?",
+      text: "Apakah Anda ingin menghapus produk dari keranjang?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "black",
@@ -41,7 +42,7 @@ export default function Keranjang() {
       cancelButtonText: "TIDAK",
     }).then((result) => {
       if (result.isConfirmed) {
-         axios
+        axios
           .delete(API_URL + "baskets/" + id)
           .then((res) => {
             getKeranjang();
@@ -67,6 +68,54 @@ export default function Keranjang() {
       <div className={keranjang.body}>
         {keranjangs?.length > 0 ? (
           <div>
+            {/* Judul */}
+            {tersedia ? (
+              <div className={keranjang.rowJudul}>
+                <div
+                  className={`${keranjang.colJudul} ${keranjang.colTersedia}`}
+                >
+                  <button
+                    onClick={() => setTersedia(true)}
+                    className={`${keranjang.judulButton} ${keranjang.aktif}`}
+                  >
+                    TERSEDIA
+                  </button>
+                </div>
+                <div
+                  className={`${keranjang.colJudul} ${keranjang.colTidakTersedia}`}
+                >
+                  <button
+                    onClick={() => setTersedia(false)}
+                    className={keranjang.judulButton}
+                  >
+                    TIDAK TERSEDIA
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className={keranjang.rowJudul}>
+                <div
+                  className={`${keranjang.colJudul} ${keranjang.colTersedia}`}
+                >
+                  <button
+                    onClick={() => setTersedia(true)}
+                    className={keranjang.judulButton}
+                  >
+                    TERSEDIA
+                  </button>
+                </div>
+                <div
+                  className={`${keranjang.colJudul} ${keranjang.colTidakTersedia}`}
+                >
+                  <button
+                    onClick={() => setTersedia(false)}
+                    className={`${keranjang.judulButton} ${keranjang.aktif}`}
+                  >
+                    TIDAK TERSEDIA
+                  </button>
+                </div>
+              </div>
+            )}
             {/* Header */}
             <div className={keranjang.background}>
               <div className={keranjang.header}>
@@ -130,6 +179,7 @@ export default function Keranjang() {
                 KERANJANGMU KOSONG
               </div>
             </div>
+            {/* Body */}
             <div className={keranjang.background}>
               <div
                 className={`${keranjang.content} ${keranjang.contentKosong}`}

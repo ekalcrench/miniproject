@@ -5,9 +5,11 @@ import axios from "axios";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../app/hooks";
 import NavbarComponent from "../../component/NavbarComponent";
 import login from "../../css/Login.module.css";
-import { API_URL } from "../../utils/api";
+import { setLogin } from "../../features/userSlice";
+import { API_SERVER } from "../../utils/api";
 import { IMAGES_PATH } from "../../utils/images";
 
 type Data = {
@@ -17,6 +19,9 @@ type Data = {
 
 export default function Login() {
   const [passwordStatus, setPasswordStatus] = useState<boolean>(false);
+
+  // Redux
+  const dispatch = useAppDispatch();
 
   // React hook form
   const {
@@ -28,7 +33,7 @@ export default function Login() {
   const onSubmit: SubmitHandler<Data> = (data) => {
     console.log("Data : ", data);
     axios
-      .post(API_URL + "users", data)
+      .post(API_SERVER + "Auth/login", data)
       .then((res) => {
         // swal({
         //   title: "Sukses",
@@ -37,7 +42,8 @@ export default function Login() {
         //   button: false,
         //   timer: 1800,
         // });
-        console.log("res : ", res);
+        dispatch(setLogin(res.data));
+        console.log("Login RES : ", res);
       })
       .catch((error) => {
         console.log(error);
