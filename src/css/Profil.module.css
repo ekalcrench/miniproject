@@ -2,7 +2,7 @@
   font-family: "Roboto";
   display: block;
   justify-content: center;
-  margin: 55px auto 50px;
+  margin: 55px auto 30px;
   width: 42%;
   font-size: 15px;
   letter-spacing: 1px;
@@ -62,6 +62,43 @@
   padding-left: 8px;
 }
 
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.errorMessage::before {
+  display: inline;
+  content: "⚠ ";
+}
+
 .contentLast {
   margin-bottom: 0px;
+}
+
+.aksiButton{
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  border: none;
+  border-radius: 13px;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  height: 30px;
+  width: 100px;
+  color: white;
+}
+
+.buttonBatal{
+  background-color: #CE0505;
+  margin-right: 15px;
+}
+
+.buttonSimpan{
+  background-color: black;
+  margin-left: 15px;
 }

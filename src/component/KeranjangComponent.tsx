@@ -6,28 +6,95 @@ import { PRODUCTS_PATH } from "../utils/images";
 import { numberWithDots } from "../utils/utils";
 
 type PropsType = {
+  index: number;
+  checkedData: Array<boolean>;
+  setCheckedData: any;
+  setSelectedData: any;
+  selectedData: any;
+  setTotalHargaCheckout: any;
+  totalHargaCheckout: number;
   data: any;
-  handleDelete: any
+  handleDelete: any;
 };
 
 export const KeranjangComponent = (props: PropsType) => {
   const [kuantitas, setKuantitas] = useState<number>(1);
 
+  // ComponentDidMount
   useEffect(() => {
     setKuantitas(props.data.jumlah);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Input Kuantitas
   const handleChange = (event: any) => {
-    setKuantitas(event.target.value);
-    console.log("kuantitas : ", event.target.value);
+    if (event.target.value <= 1) {
+      props.data.total_harga = 1 * props.data.product.harga_jual;
+      setKuantitas(1);
+    } else {
+      props.data.total_harga =
+        event.target.value * props.data.product.harga_jual;
+      setKuantitas(event.target.value);
+    }
+  };
+
+  // Button Kuantitas
+  const handleKurang = () => {
+    if (kuantitas <= 1) {
+      setKuantitas(1);
+    } else {
+      props.data.total_harga = (kuantitas - 1) * props.data.product.harga_jual;
+      setKuantitas(kuantitas - 1);
+    }
+  };
+
+  const handleTambah = () => {
+    props.data.total_harga = (kuantitas + 1) * props.data.product.harga_jual;
+    setKuantitas(kuantitas + 1);
+  };
+
+  useEffect(() => {
+    props.data.jumlah = kuantitas;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [kuantitas]);
+
+  // Select Data Checkbox
+  const handleSelectData = (position: number) => {
+    if (props.checkedData[props.index] === false) {
+      props.setTotalHargaCheckout(
+        props.totalHargaCheckout + props.data.total_harga
+      );
+      if (props.selectedData === null) {
+        props.setSelectedData([props.data]);
+      } else {
+        props.setSelectedData([...props.selectedData, props.data]);
+      }
+    } else {
+      props.setTotalHargaCheckout(
+        props.totalHargaCheckout - props.data.total_harga
+      );
+      props.setSelectedData(
+        props.selectedData.filter((data: any) => data.id !== props.data.id)
+      );
+    }
+
+    props.setCheckedData(
+      props.checkedData.map((data: boolean, index: number) =>
+        index === position ? !data : data
+      )
+    );
   };
 
   return (
     <div className={keranjang.background}>
       <div className={keranjang.content}>
         <div className={keranjang.select}>
-          <input className={keranjang.checkbox} type="checkbox" />
+          <input
+            className={keranjang.checkbox}
+            type="checkbox"
+            checked={props.checkedData[props.index]}
+            onChange={() => handleSelectData(props.index)}
+          />
         </div>
         {/* Produk */}
         <div className={keranjang.produk}>
@@ -71,20 +138,45 @@ export const KeranjangComponent = (props: PropsType) => {
           </div>
         )}
         {/* Kuantitas */}
-        <div className={keranjang.kuantitas}>
-          <button className={keranjang.kuantitasButton}>-</button>
-          <input
-            className={keranjang.kuantitasInput}
-            type="number"
-            name="kuantitas"
-            value={kuantitas}
-            onChange={(event) => handleChange(event)}
-          />
-          <button className={keranjang.kuantitasButton}>+</button>
-        </div>
+        {props.checkedData[props.index] ? (
+          <div className={keranjang.kuantitas}>
+            <button className={keranjang.kuantitasButton}>-</button>
+            <input
+              className={keranjang.kuantitasInput}
+              type="number"
+              name="kuantitas"
+              value={kuantitas}
+              disabled
+            />
+            <button className={keranjang.kuantitasButton}>+</button>
+          </div>
+        ) : (
+          <div className={keranjang.kuantitas}>
+            <button
+              onClick={() => handleKurang()}
+              className={keranjang.kuantitasButton}
+            >
+              -
+            </button>
+            <input
+              className={keranjang.kuantitasInput}
+              type="number"
+              name="kuantitas"
+              value={kuantitas}
+              onChange={(event) => handleChange(event)}
+            />
+            <button
+              onClick={() => handleTambah()}
+              className={keranjang.kuantitasButton}
+            >
+              +
+            </button>
+          </div>
+        )}
+
         {/* Total Harga */}
         <div className={keranjang.totalHarga}>
-          Rp {numberWithDots(props.data.jumlah * props.data.product.harga_jual)}
+          Rp {numberWithDots(props.data.total_harga)}
         </div>
         <div className={keranjang.aksi}>
           <button

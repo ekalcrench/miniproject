@@ -149,7 +149,7 @@ export default function NavbarComponent() {
           <button className={`${navbar.dropdownButton} `}>
             <FontAwesomeIcon className={`${navbar.icon}`} icon={faUser} />
           </button>
-          {!userIdLoggedIn ? (
+          {userIdLoggedIn ? (
             <div
               className={`${navbar.dropdownContent} ${navbar.dropdownContentDashboard} `}
             >

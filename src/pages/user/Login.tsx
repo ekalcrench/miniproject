@@ -35,13 +35,6 @@ export default function Login() {
     axios
       .post(API_SERVER + "Auth/login", data)
       .then((res) => {
-        // swal({
-        //   title: "Sukses",
-        //   text: keranjang.product.nama + " Sukses Masuk Keranjang",
-        //   icon: "success",
-        //   button: false,
-        //   timer: 1800,
-        // });
         dispatch(setLogin(res.data));
         console.log("Login RES : ", res);
       })

@@ -17,6 +17,10 @@ export default function Home() {
 
   // ComponentDidMount Products
   useEffect(() => {
+    getProduct();
+  }, []);
+
+  const getProduct = () => {
     axios
       .get(API_URL + "products")
       .then((res) => {
@@ -27,7 +31,7 @@ export default function Home() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   const masukKeranjang = (id: number) => {
     Swal.fire({
@@ -69,7 +73,6 @@ export default function Home() {
           });
       }
     });
-    
   };
 
   return (

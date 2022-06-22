@@ -38,32 +38,68 @@
   background-color: #D4E4F1;
 }
 
-.header {
+.headerKosong {
   height: 55px;
   display: flex;
   align-items: center;
   font-weight: 500;
   margin-bottom: 15px;
-}
-
-.headerKosong{
   padding-left: 25px;
 }
 
 .content {
-  height: 250px;
+  height: 230px;
   margin-bottom: 5px;
+  display: block;
+}
+
+.contentKosong{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentHeader{
+  display: flex;
+  padding-top: 25px;
+  margin-bottom: 25px;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contentHeaderTanggal{
+  letter-spacing: 1.6px;
   display: flex;
   align-items: center;
 }
 
-.contentKosong{
-  justify-content: center;
+.contentHeaderStatus{
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.footer{
-  margin-bottom: 0;
-  font-weight: 400;
+.contentHeaderStatusButton{
+  border: none;
+  border-radius: 15px;
+  width: 120px;
+  height: 25px;
+}
+
+.contentHeaderStatusButton:hover{
+  cursor: default;
+}
+
+.contentHeaderInvoice{
+  display: flex;
+  align-items: center;
+  opacity: 50%;
+}
+
+.contentBody{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .lanjutBelanja {
@@ -82,29 +118,14 @@
   background-color: #d4e4f1;
 }
 
-.select {
-  width: 5%;
-  display: flex;
-  justify-content: center;
-}
-
-.checkbox {
-  height: 18px;
-  width: 18px;
-}
-
-.checkbox:hover{
-  cursor: pointer;
-}
-
 .produk {
-  width: 42%;
+  width: 72%;
   display: flex;
   align-items: center;
 }
 
 .produkImage{
-  width: 29%;
+  width: 18%;
   display: flex;
   align-items: center;
 }
@@ -115,141 +136,21 @@
   object-fit: cover;
 }
 
-.produkNama{
-  width: 46%;
-  line-height: 1.6;
+.produkDetail{
+  width: auto;
+  line-height: 1.4;
 }
 
-.produkVariasi{
-  width: 25%;
+.produkDetailHarga{
+  opacity: 50%;
 }
 
-.produkVariasiButton{
-  background-color: inherit;
-  border: none;
-  padding: 0;
-  margin-left: 5px;
-}
-
-.produkVariasiIcon{
-  font-size: 20px;
-}
-
-.produkVariasiIcon:hover{
-  filter: invert(41%) sepia(29%) saturate(0%) hue-rotate(192deg) brightness(101%) contrast(96%);
-  opacity: 20%;
-}
-
-.hargaSatuan {
+.totalBelanja {
   width: 13%;
   display: block;
   text-align: center;
+  line-height: 1.8;
 }
-
-.diskonStrip{
-  opacity: 50%;
-  text-decoration: line-through;
-}
-
-.diskon{
-  color: #4A0C0C;
-}
-
-.kuantitas {
-  width: 14%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.kuantitasButton{
-  width: 16%;
-  height: 23px;
-  margin: 0 10%;
-  background-color: white;
-  border: 1px solid #707070;
-  border-radius: 3px;
-}
-
-.kuantitasButton:hover{
-  background-color: rgb(112, 112, 112, 20%);
-}
-
-.kuantitasInput{
-  width: 40%;
-  height: 27px;
-  margin: 0 -7%;
-  border: 1px solid #707070;
-  border-radius: 3px;
-  font-size: inherit;
-  font-family: inherit;
-  text-align: center;
-}
-
-/* Menghilangkan Arrow yang ada di Number Value */
-/* Chrome, Safari, Edge, Opera */
-.kuantitasInput::-webkit-outer-spin-button, .kuantitasInput::-webkit-inner-spin-button{
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* Firefox */
-.kuantitasInput[type=number]{
-  -moz-appearance: textfield;
-}
-/* End */
-
-.totalHarga {
-  width: 13%;
-  display: flex;
-  justify-content: center;
-}
-
-.aksi {
-  width: 12%;
-  display: flex;
-  justify-content: center;
-}
-
-.aksiButton{
-  background-color: #CE0505;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  width: 70%;
-  height: 27px;
-}
-
-.aksiHapus{
-  width: 83%;
-}
-
-.aksiCheckout{
-  background-color: black;
-  color: white;
-  font-weight: 500;
-  border: none;
-  border-radius: 15px;
-  width: 90%;
-  height: 27px;
-}
-
-.footerHapus{
-  width: 10%;
-}
-
-.footerCheckout{
-  width: 15%;
-}
-
-.footerTotalProduct{
-  justify-content: left;
-}
-
-.footerTotalHarga{
-  justify-content: left;
-  width: 12%;
-}
-
 
 /* Utils */
 
@@ -257,8 +158,4 @@ button{
   font-size: inherit;
   font-family: inherit;
   letter-spacing: inherit;
-}
-
-button:hover{
-  cursor: pointer;
 }
