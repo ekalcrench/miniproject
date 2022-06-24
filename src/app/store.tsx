@@ -12,15 +12,29 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import categorySlice from "../features/categorySlice";
+import { encryptTransform } from "redux-persist-transform-encrypt";
 
-const persistConfig = {
-  key: "user",
-  storage,
+const rootPersistConfig = {
+  key: "root",
+  transforms: [
+    encryptTransform({
+      secretKey: "my-super-secret-key",
+      onError: function (error) {
+        console.log("error : ", error);
+      },
+    }),
+  ],
+  storage: storage,
+  blacklist: ["category"],
 };
 
-const reducers = combineReducers({ user: userSlice });
+const rootReducer = combineReducers({
+  user: userSlice,
+  category: categorySlice,
+});
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -31,32 +45,6 @@ export const store = configureStore({
       },
     }),
 });
-
-// import { persistReducer } from "redux-persist";
-// import { encryptTransform } from "redux-persist-transform-encrypt";
-// import storage from "redux-persist/lib/storage";
-
-// const persistConfig: any = {
-//   key: "root",
-//   transforms: [
-//     encryptTransform({
-//       secretKey: "my-super-secret-key",
-//       onError: function (error) {
-//         // Handle the error.
-//         console.log("error : ", error);
-//       },
-//     }),
-//   ],
-//   storage: storage
-// };
-
-// export const persistedReducer = persistReducer(persistConfig, usersSlice);
-
-// export const store = configureStore({
-//   reducer: {
-//     user: userSlice
-//   },
-// });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;

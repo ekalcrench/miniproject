@@ -1,65 +1,110 @@
-.homeCard{
-   width: 25%;
-   height: 100%;
+.homeCard {
+  width: 25%;
+  height: 430px;
+  margin-bottom: 50px;
 }
 
-.homeCard:hover{
-   background-color: #FBFCFC;
-   cursor: pointer;
+.homeCard:hover {
+  background-color: #fbfcfc;
+  cursor: pointer;
 }
 
-.homeImg{
-   display: flex;
-   margin: auto;
-   height: 75%;
-   object-fit: scale-down;
+.homeImg {
+  display: flex;
+  margin: auto;
+  height: 75%;
+  object-fit: scale-down;
 }
 
-.homeBody{
-   text-align: center;
-   margin-top: 17px;
+.skeletonImage {
+  /* X Y Blur (Spread) Color  */
+  box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  background-color: white;
+  width: 83%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.dataNama{
-   font-size: 17px;
-   letter-spacing: 0.2px;
-   font-weight: 500;
-   margin-bottom: 2px;
+.homeBody {
+  text-align: center;
+  margin-top: 17px;
 }
 
-.dataKeterangan{
-   font-size: 12px;
-   letter-spacing: 0.2px;
-   margin-bottom: 4px;
+.dataNama {
+  font-size: 17px;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  margin-bottom: 2px;
 }
 
-.dataDiscount{
-   display: inline-flex;
+.skeletonDataNama {
+  box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  background-color: white;
+  width: 70%;
+  height: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 }
 
-.dataNotDiscount{
-   margin-top: 3px;
+.dataKeterangan {
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  margin-bottom: 4px;
 }
 
-.dataHargaAwal{
-   font-size: 14px;
-   text-decoration: line-through;
-   opacity: 50%;
+.skeletonDataKeterangan{
+   box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  background-color: white;
+  width: 65%;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
 }
 
-.discount{
-   font-size: 12px;
-   color: #B5B019;
-   margin-left: 7px;
-   margin-top: auto;
+.dataDiscount {
+  display: inline-flex;
 }
 
-.dataHargaJual{
-   font-size: 14px;
-   color: #4A0C0C;
-   margin-top: 9px;
+.dataNotDiscount {
+  margin-top: 3px;
 }
 
-.notDiscount{
-   color: black;
+.dataHargaAwal {
+  font-size: 14px;
+  text-decoration: line-through;
+  opacity: 50%;
+}
+
+.discount {
+  font-size: 12px;
+  color: #b5b019;
+  margin-left: 7px;
+  margin-top: auto;
+}
+
+.dataHargaJual {
+  font-size: 14px;
+  color: #4a0c0c;
+  margin-top: 9px;
+}
+
+.notDiscount {
+  color: black;
+}
+
+.skeletonDataHarga{
+   box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  background-color: white;
+  width: 65%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }

@@ -9,7 +9,7 @@ import { useAppDispatch } from "../../app/hooks";
 import NavbarComponent from "../../component/NavbarComponent";
 import login from "../../css/Login.module.css";
 import { setLogin } from "../../features/userSlice";
-import { API_SERVER } from "../../utils/api";
+import { API_SERVER_AUTH } from "../../utils/api";
 import { IMAGES_PATH } from "../../utils/images";
 
 type Data = {
@@ -33,7 +33,7 @@ export default function Login() {
   const onSubmit: SubmitHandler<Data> = (data) => {
     console.log("Data : ", data);
     axios
-      .post(API_SERVER + "Auth/login", data)
+      .post(API_SERVER_AUTH + "Auth/login", data)
       .then((res) => {
         dispatch(setLogin(res.data));
         console.log("Login RES : ", res);

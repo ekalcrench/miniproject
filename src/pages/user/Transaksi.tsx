@@ -42,11 +42,11 @@ export default function Transaksi() {
             {judul}
             {/* Product */}
             {/* eslint-disable-next-line array-callback-return */}
-            {transaksis.map((data: any) => {
+            {transaksis.map((data: any, index:number) => {
               if (status === data.status) {
-                return <TransaksiComponent key={data.id} data={data} />;
+                return <TransaksiComponent key={index} data={data} />;
               } else if (status === 0) {
-                return <TransaksiComponent key={data.id} data={data} />;
+                return <TransaksiComponent key={index} data={data} />;
               }
             })}
           </div>

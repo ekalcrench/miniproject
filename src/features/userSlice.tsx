@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Define a type for the slice state
-interface UserSlice {
+type UserSlice = {
   isLoggedIn: boolean;
   data: any;
-}
+};
 
 // Define the initial state using that type
 const initialState: UserSlice = {
   isLoggedIn: false,
-  data: null
+  data: null,
 };
 
 export const userSlice = createSlice({
@@ -28,16 +28,16 @@ export const userSlice = createSlice({
       state.data = null;
       // localStorage.clear();
     },
-   //  getUser: (state) => {
-   //    const getItem = window.localStorage.getItem("user");
-   //    if (getItem) {
-   //      const user = JSON.parse(getItem);
-   //      state.isLoggedIn = user.isLoggedIn;
-   //      state.email = user.email;
-   //      state.password = user.password;
-   //      console.log("User : ", user);
-   //    }
-   //  },
+    //  getUser: (state) => {
+    //    const getItem = window.localStorage.getItem("user");
+    //    if (getItem) {
+    //      const user = JSON.parse(getItem);
+    //      state.isLoggedIn = user.isLoggedIn;
+    //      state.email = user.email;
+    //      state.password = user.password;
+    //      console.log("User : ", user);
+    //    }
+    //  },
   },
 });
 

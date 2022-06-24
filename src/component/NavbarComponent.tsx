@@ -4,14 +4,20 @@ import { ChangeEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import navbar from "../css/Navbar.module.css";
+import { setGender, setType } from "../features/categorySlice";
 import { setLogout } from "../features/userSlice";
 
 export default function NavbarComponent() {
   const [search, setSearch] = useState<string>("");
-  
+
   // Redux
   const dispatch = useAppDispatch();
   const userIdLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
+
+  const handleCategory = (gender: string, type: string) => {
+    dispatch(setGender(gender));
+    dispatch(setType(type));
+  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -31,97 +37,122 @@ export default function NavbarComponent() {
             FASHIONBOX
           </Link>
         </div>
-        {/* PRIA */}
+        {/* MALE */}
         <div className={`${navbar.body} ${navbar.col} ${navbar.dropdownLeft}`}>
           <button className={`${navbar.dropdownButton} ${navbar.bodyButton}`}>
-            PRIA
+            MALE
           </button>
           <div
             className={`${navbar.dropdownContent} ${navbar.dropdownContentLeft}`}
           >
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              TERBARU
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              PAKAIAN
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              CELANA
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              SEPATU
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              JAM & AKSESORIS
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              BATIK
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              SPORTS
-            </Link>
+            <div onClick={() => handleCategory("male", "clothes")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                CLOTHES
+              </Link>
+            </div>
+            <div onClick={() => handleCategory("male", "pants")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                PANTS
+              </Link>
+            </div>
+            <div onClick={() => handleCategory("male", "shoes")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                SHOES
+              </Link>
+            </div>
+            <div onClick={() => handleCategory("male", "accessories")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                ACCESSORIES
+              </Link>
+            </div>
           </div>
         </div>
-        {/* WANITA */}
+        {/* FEMALE */}
         <div className={`${navbar.body} ${navbar.col} ${navbar.dropdownLeft}`}>
           <button className={`${navbar.dropdownButton} ${navbar.bodyButton}`}>
-            WANITA
+            FEMALE
           </button>
           <div
             className={`${navbar.dropdownContent} ${navbar.dropdownContentLeft}`}
           >
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              TERBARU
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              PAKAIAN
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              CELANA
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              SEPATU
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              JAM & AKSESORIS
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              BATIK
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              SPORTS
-            </Link>
+            <div onClick={() => handleCategory("female", "clothes")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                CLOTHES
+              </Link>
+            </div>
+            <div onClick={() => handleCategory("female", "pants")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                PANTS
+              </Link>
+            </div>
+            <div onClick={() => handleCategory("female", "dress")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                DRESS
+              </Link>
+            </div>
+            <div onClick={() => handleCategory("female", "skirt")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                SKIRT
+              </Link>
+            </div>
+            <div onClick={() => handleCategory("female", "accessories")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                ACCESSORIES
+              </Link>
+            </div>
           </div>
         </div>
-        {/* ANAK */}
+        {/* KIDS */}
         <div className={`${navbar.body} ${navbar.col} ${navbar.dropdownLeft}`}>
           <button className={`${navbar.dropdownButton} ${navbar.bodyButton}`}>
-            ANAK
+            KIDS
           </button>
           <div
             className={`${navbar.dropdownContent} ${navbar.dropdownContentLeft}`}
           >
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              TERBARU
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              PAKAIAN
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              CELANA
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              SEPATU
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              JAM & AKSESORIS
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              BATIK
-            </Link>
-            <Link to="/" className={`${navbar.link} ${navbar.linkLeft}`}>
-              SPORTS
-            </Link>
+            <div onClick={() => handleCategory("kids", "clothes")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                CLOTHES
+              </Link>
+            </div>
+            <div onClick={() => handleCategory("kids", "pants")}>
+              <Link
+                to="/filterproduct"
+                className={`${navbar.link} ${navbar.linkLeft}`}
+              >
+                PANTS
+              </Link>
+            </div>
           </div>
         </div>
         {/* SEARCH */}

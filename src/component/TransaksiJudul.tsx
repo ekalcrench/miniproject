@@ -30,23 +30,7 @@ export const TransaksiJudul = (props: PropsType) => {
             onClick={() => props.setStatus(2)}
             className={transaksi.judulButton}
           >
-            BERLANGSUNG
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(3)}
-            className={transaksi.judulButton}
-          >
-            BERHASIL
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(4)}
-            className={transaksi.judulButton}
-          >
-            TIDAK BERHASIL
+            SUDAH DIBAYAR
           </button>
         </div>
       </div>
@@ -75,113 +59,7 @@ export const TransaksiJudul = (props: PropsType) => {
             onClick={() => props.setStatus(2)}
             className={`${transaksi.judulButton} ${transaksi.aktif}`}
           >
-            BERLANGSUNG
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(3)}
-            className={transaksi.judulButton}
-          >
-            BERHASIL
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(4)}
-            className={transaksi.judulButton}
-          >
-            TIDAK BERHASIL
-          </button>
-        </div>
-      </div>
-    );
-  } else if (props.status === 3) {
-    return (
-      <div className={transaksi.rowJudul}>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(0)}
-            className={transaksi.judulButton}
-          >
-            SEMUA
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(1)}
-            className={transaksi.judulButton}
-          >
-            BELUM DIBAYAR
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(2)}
-            className={transaksi.judulButton}
-          >
-            BERLANGSUNG
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(3)}
-            className={`${transaksi.judulButton} ${transaksi.aktif}`}
-          >
-            BERHASIL
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(4)}
-            className={transaksi.judulButton}
-          >
-            TIDAK BERHASIL
-          </button>
-        </div>
-      </div>
-    );
-  } else if (props.status === 4) {
-    return (
-      <div className={transaksi.rowJudul}>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(0)}
-            className={transaksi.judulButton}
-          >
-            SEMUA
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(1)}
-            className={transaksi.judulButton}
-          >
-            BELUM DIBAYAR
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(2)}
-            className={transaksi.judulButton}
-          >
-            BERLANGSUNG
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(3)}
-            className={transaksi.judulButton}
-          >
-            BERHASIL
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(4)}
-            className={`${transaksi.judulButton} ${transaksi.aktif}`}
-          >
-            TIDAK BERHASIL
+            SUDAH DIBAYAR
           </button>
         </div>
       </div>
@@ -210,23 +88,7 @@ export const TransaksiJudul = (props: PropsType) => {
             onClick={() => props.setStatus(2)}
             className={transaksi.judulButton}
           >
-            BERLANGSUNG
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(3)}
-            className={transaksi.judulButton}
-          >
-            BERHASIL
-          </button>
-        </div>
-        <div className={transaksi.colJudul}>
-          <button
-            onClick={() => props.setStatus(4)}
-            className={transaksi.judulButton}
-          >
-            TIDAK BERHASIL
+            SUDAH DIBAYAR
           </button>
         </div>
       </div>

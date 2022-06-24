@@ -11,22 +11,14 @@ export const TransaksiComponent = (props: PropsType) => {
   let color = "black";
   let statusPembayaran = "Belum Dibayar";
   if (props.data.status === 1) {
-    backgroundColor = "#E7F847";
-    color = "black";
-    statusPembayaran = "Belum Dibayar";
-  } else if (props.data.status === 2) {
-    backgroundColor = "#D4E4F1";
-    color = "black";
-    statusPembayaran = "Berlangsung";
-  } else if (props.data.status === 3) {
-    backgroundColor = "#3D8461";
-    color = "white";
-    statusPembayaran = "Berhasil";
-  } else if (props.data.status === 4) {
     backgroundColor = "#CE0505";
     color = "white";
-    statusPembayaran = "Tidak Berhasil";
-  }
+    statusPembayaran = "Belum Dibayar";
+  } else if (props.data.status === 2) {
+    backgroundColor = "#3D8461";
+    color = "white";
+    statusPembayaran = "Sudah Dibayar";
+  } 
 
   return (
     <div className={transaksi.background}>
@@ -42,7 +34,7 @@ export const TransaksiComponent = (props: PropsType) => {
             </button>
           </div>
           <div className={transaksi.contentHeaderInvoice}>
-            INV/20211122/MPL/1783877756
+            {props.data.invoice}
           </div>
         </div>
         <div className={transaksi.contentBody}>
@@ -51,16 +43,16 @@ export const TransaksiComponent = (props: PropsType) => {
             <div className={transaksi.produkImage}>
               <img
                 className={transaksi.imgProduk}
-                src={PRODUCTS_PATH + props.data.product.gambar}
-                alt={props.data.product.gambar}
+                src={PRODUCTS_PATH + props.data.product.img}
+                alt={props.data.product.img}
               ></img>
             </div>
             <div className={transaksi.produkDetail}>
-              <div>{props.data.product.nama}</div>
+              <div>{props.data.product.name}</div>
               <div>{props.data.product.keterangan}</div>
               <div className={transaksi.produkDetailHarga}>
                 {props.data.jumlah} Barang x Rp{" "}
-                {numberWithDots(props.data.product.harga_jual)}
+                {numberWithDots(props.data.product.hargaJual)}
               </div>
             </div>
           </div>
@@ -69,9 +61,7 @@ export const TransaksiComponent = (props: PropsType) => {
             <div>Total Belanja</div>
             <div>
               Rp{" "}
-              {numberWithDots(
-                props.data.jumlah * props.data.product.harga_jual
-              )}
+              {numberWithDots(props.data.jumlah * props.data.product.hargaJual)}
             </div>
           </div>
         </div>

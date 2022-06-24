@@ -5,6 +5,7 @@ import Keranjang from "./pages/Keranjang";
 import SyaratdanKetentuan from "./pages/prasyarat/SyaratdanKetentuan";
 import KebijakanPrivasi from "./pages/prasyarat/KebijakanPrivasi";
 import Transaksi from "./pages/user/Transaksi";
+import FilterProduct from "./pages/FilterProduct";
 
 export const routes = [
   {
@@ -41,5 +42,10 @@ export const routes = [
     path: "/kebijakanprivasi",
     name: "Kebijakan Privasi",
     element: <KebijakanPrivasi />,
+  },
+  {
+    path: "/filterproduct",
+    name: "Filter Product",
+    element: <FilterProduct />,
   },
 ];

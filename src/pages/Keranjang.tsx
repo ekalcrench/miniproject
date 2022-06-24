@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useAppSelector } from "../app/hooks";
 import { KeranjangComponent } from "../component/KeranjangComponent";
 import NavbarComponent from "../component/NavbarComponent";
 import keranjang from "../css/Keranjang.module.css";
@@ -16,6 +17,9 @@ export default function Keranjang() {
   const [selectedData, setSelectedData] = useState<any>(null);
   const [totalHargaCheckout, setTotalHargaCheckout] = useState<number>(0);
   const [disabled, setDisabled] = useState<boolean>(false); // Button disabled
+
+  // Redux
+  const userIsLoggedIn = useAppSelector((state) => state.user.isLoggedIn);
 
   // ComponentDidMount
   useLayoutEffect(() => {
@@ -131,7 +135,7 @@ export default function Keranjang() {
       setSelectedData(keranjangs);
       setTotalHargaCheckout(
         keranjangs.reduce(
-          (totalHarga: number, data: any) => totalHarga + data.total_harga,
+          (totalHarga: number, data: any) => totalHarga + data.totalHarga,
           0
         )
       );
@@ -148,57 +152,76 @@ export default function Keranjang() {
   }, [checkedAll]);
 
   const handleCheckout = () => {
-    if (selectedData?.length > 0) {
-      Swal.fire({
-        title: "Apakah Anda Yakin?",
-        text: "Apakah Anda ingin checkout?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "black",
-        cancelButtonColor: "#CE0505",
-        confirmButtonText: "IYA",
-        cancelButtonText: "TIDAK",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          setDisabled(true);
-          selectedData.map((data: any) => {
-            const postData = {
-              product: data.product,
-              jumlah: data.jumlah,
-              total_harga: data.total_harga,
-              kode_pembayaran: Math.floor(Math.random() * 100),
-              status: 1
-            };
-            return axios
-              .post(API_URL + "transactions", postData)
-              .then((res) => {
-                console.log("transactions post RES : ", res);
-                axios
-                  .delete(API_URL + "baskets/" + data.id)
-                  .then((res) => {
-                    console.log("transactions delete RES : ", res);
-                    getKeranjang();
-                    setDisabled(false);
-                    Swal.fire({
-                      icon: "success",
-                      title: "Berhasil",
-                      text: "Produk berhasil checkout",
-                      confirmButtonText: "OKE",
-                      confirmButtonColor: "black",
-                      timer: 3000,
-                    });
-                  })
-                  .catch((error) => console.log(error));
-              })
-              .catch((error) => console.log(error));
-          });
-        }
-      });
+    if (userIsLoggedIn) {
+      if (selectedData?.length > 0) {
+        Swal.fire({
+          title: "Apakah Anda Yakin?",
+          text: "Apakah Anda ingin checkout?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "black",
+          cancelButtonColor: "#CE0505",
+          confirmButtonText: "IYA",
+          cancelButtonText: "TIDAK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            setDisabled(true);
+            selectedData.map((data: any) => {
+              const date = new Date();
+              const postData = {
+                product: data.product,
+                jumlah: data.jumlah,
+                total_harga: data.total_harga,
+                kode_pembayaran: Math.floor(Math.random() * 100),
+                status: 1,
+                invoice:
+                  "INV/" +
+                  date.getFullYear() +
+                  date.getMonth() +
+                  date.getDate() +
+                  "/BD/" +
+                  date.getTime(),
+              };
+              return axios
+                .post(API_URL + "transactions", postData)
+                .then((res) => {
+                  console.log("transactions post RES : ", res);
+                  axios
+                    .delete(API_URL + "baskets/" + data.id)
+                    .then((res) => {
+                      console.log("transactions delete RES : ", res);
+                      getKeranjang();
+                      setDisabled(false);
+                      Swal.fire({
+                        icon: "success",
+                        title: "Berhasil",
+                        text: "Produk berhasil checkout",
+                        confirmButtonText: "OKE",
+                        confirmButtonColor: "black",
+                        timer: 3000,
+                      });
+                    })
+                    .catch((error) => console.log(error));
+                })
+                .catch((error) => console.log(error));
+            });
+          }
+        });
+      } else {
+        Swal.fire({
+          icon: "warning",
+          title: "Mohon Pilih Produk",
+          text: "Mohon pilih produk untuk melanjutkan checkout",
+          confirmButtonText: "OKE",
+          confirmButtonColor: "black",
+          timer: 2000,
+        });
+      }
     } else {
       Swal.fire({
         icon: "warning",
-        title: "Mohon Pilih Produk",
-        text: "Mohon pilih produk untuk melanjutkan checkout",
+        title: "Mohon Login",
+        text: "Mohon login terlebih dahulu untuk melanjutkan checkout",
         confirmButtonText: "OKE",
         confirmButtonColor: "black",
         timer: 2000,
