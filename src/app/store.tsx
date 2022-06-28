@@ -14,9 +14,10 @@ import {
 } from "redux-persist";
 import categorySlice from "../features/categorySlice";
 import { encryptTransform } from "redux-persist-transform-encrypt";
+import searchSlice from "../features/searchSlice";
 
 const rootPersistConfig = {
-  key: "root",
+  key: "fashionbox",
   transforms: [
     encryptTransform({
       secretKey: "my-super-secret-key",
@@ -26,12 +27,13 @@ const rootPersistConfig = {
     }),
   ],
   storage: storage,
-  blacklist: ["category"],
+  blacklist: ["search"],
 };
 
 const rootReducer = combineReducers({
   user: userSlice,
   category: categorySlice,
+  search: searchSlice,
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);

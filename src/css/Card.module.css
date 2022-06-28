@@ -16,17 +16,6 @@
   object-fit: scale-down;
 }
 
-.skeletonImage {
-  /* X Y Blur (Spread) Color  */
-  box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 10%);
-  border-radius: 10px;
-  background-color: white;
-  width: 83%;
-  height: 70%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .homeBody {
   text-align: center;
   margin-top: 17px;
@@ -39,32 +28,10 @@
   margin-bottom: 2px;
 }
 
-.skeletonDataNama {
-  box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 10%);
-  border-radius: 10px;
-  background-color: white;
-  width: 70%;
-  height: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-}
-
 .dataKeterangan {
   font-size: 12px;
   letter-spacing: 0.2px;
   margin-bottom: 4px;
-}
-
-.skeletonDataKeterangan{
-   box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 10%);
-  border-radius: 10px;
-  background-color: white;
-  width: 65%;
-  height: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
 }
 
 .dataDiscount {
@@ -98,10 +65,114 @@
   color: black;
 }
 
-.skeletonDataHarga{
-   box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 10%);
+/* @keyframes skeletonLoading {
+  100% {
+    background-color: hsl(198, 21%, 88%);
+  }
+  0% {
+    background-color: white;
+  }
+} */
+
+@keyframes skeletonLoading {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.skeletonImage {
+  /* X Y Blur (Spread) Color  */
+  box-shadow: 3px 3px 6px 3px rgb(0 0 0 / 10%);
   border-radius: 10px;
-  background-color: white;
+  width: 83%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 80%
+    ),
+    rgb(0 0 0 / 1%);
+  background-repeat: repeat-y;
+  background-size: 150px 200px;
+  background-position: 0 0;
+  animation-name: skeletonLoading;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-play-state: running;
+}
+
+.skeletonDataNama {
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 80%
+    ),
+    rgb(0 0 0 / 5%);
+  background-repeat: repeat-y;
+  background-size: 80px 200px;
+  background-position: 0 0;
+  animation-name: skeletonLoading;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-play-state: running;
+
+  border-radius: 3px;
+  width: 70%;
+  height: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.skeletonDataKeterangan {
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 80%
+    ),
+    rgb(0 0 0 / 5%);
+  background-repeat: repeat-y;
+  background-size: 80px 200px;
+  background-position: 0 0;
+  animation-name: skeletonLoading;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-play-state: running;
+
+  border-radius: 3px;
+  width: 65%;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+.skeletonDataHarga {
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 80%
+    ),
+    rgb(0 0 0 / 5%);
+  background-repeat: repeat-y;
+  background-size: 100px 200px;
+  background-position: 0 0;
+  animation-name: skeletonLoading;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-play-state: running;
+  
+  border-radius: 3px;
   width: 65%;
   height: 50px;
   margin-left: auto;

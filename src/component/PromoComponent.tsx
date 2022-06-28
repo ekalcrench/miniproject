@@ -1,21 +1,31 @@
 import card from "../css/Card.module.css";
 import { PRODUCTS_PATH } from "../utils/images";
-import { numberWithDots } from "../utils/utils";
+import { masukKeranjang, numberWithDots } from "../utils/utils";
 
 type PropsType = {
   data: any;
-  masukKeranjang: any;
+  basket: any;
+  setBasket: any;
+  orderCart: any;
+  userData: any;
 };
 
 export const CardComponent = (props: PropsType) => {
   const discount = Math.floor(
-    ((props.data.hargaAwal - props.data.hargaJual) / props.data.hargaAwal) *
-      100
+    ((props.data.hargaAwal - props.data.hargaJual) / props.data.hargaAwal) * 100
   );
 
   return (
     <div
-      onClick={() => props.masukKeranjang(props.data.id)}
+      onClick={() =>
+        masukKeranjang(
+          props.data,
+          props.basket,
+          props.setBasket,
+          props.orderCart,
+          props.userData
+        )
+      }
       className={card.homeCard}
     >
       <img

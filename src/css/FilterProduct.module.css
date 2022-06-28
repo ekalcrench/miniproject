@@ -1,0 +1,28 @@
+.body {
+  font-family: "Roboto";
+  display: block;
+  margin: 55px auto 50px;
+  width: 74%;
+}
+
+.headerBody {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  margin-bottom: 40px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.contentProduct {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 95%;
+}

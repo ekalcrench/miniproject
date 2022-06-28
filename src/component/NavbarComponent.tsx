@@ -1,14 +1,18 @@
 import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ChangeEvent, useState } from "react";
+import axios from "axios";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import navbar from "../css/Navbar.module.css";
 import { setGender, setType } from "../features/categorySlice";
+import { setDataSearch } from "../features/searchSlice";
 import { setLogout } from "../features/userSlice";
+import { API_SERVER_ORDER } from "../utils/api";
 
 export default function NavbarComponent() {
   const [search, setSearch] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   // Redux
   const dispatch = useAppDispatch();
@@ -26,8 +30,31 @@ export default function NavbarComponent() {
 
   const handleSubmit = (event: { preventDefault: any }) => {
     event.preventDefault();
-    console.log("SUBMIT");
+    setLoading(true);
   };
+
+  // Searching
+  useEffect(() => {
+    if (search.length > 0) {
+      if (loading) {
+        console.log("Waktunya SEARCHING BOSS");
+        axios
+          .post(API_SERVER_ORDER + "Product/search", { name: search })
+          .then((res) => {
+            dispatch(setDataSearch(res.data));
+            console.log("setDataSearch : ", res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        // Jika data sudah lebih dari 3 karakter dan
+        setTimeout(() => setLoading(true), 2000);
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search, loading]);
 
   return (
     <div className={navbar.nav}>
@@ -69,7 +96,7 @@ export default function NavbarComponent() {
                 SHOES
               </Link>
             </div>
-            <div onClick={() => handleCategory("male", "accessories")}>
+            <div onClick={() => handleCategory("male", "accessoris")}>
               <Link
                 to="/filterproduct"
                 className={`${navbar.link} ${navbar.linkLeft}`}

@@ -73,7 +73,9 @@ export const KeranjangComponent = (props: PropsType) => {
         props.totalHargaCheckout - props.data.totalHarga
       );
       props.setSelectedData(
-        props.selectedData.filter((data: any) => data.id !== props.data.id)
+        props.selectedData.filter(
+          (data: any) => data.product.id !== props.data.product.id
+        )
       );
     }
 
@@ -172,14 +174,13 @@ export const KeranjangComponent = (props: PropsType) => {
             </button>
           </div>
         )}
-
         {/* Total Harga */}
         <div className={keranjang.totalHarga}>
           Rp {numberWithDots(props.data.totalHarga)}
         </div>
         <div className={keranjang.aksi}>
           <button
-            onClick={() => props.handleDelete(props.data.id)}
+            onClick={() => props.handleDelete(props.data.product.id)}
             className={keranjang.aksiButton}
           >
             HAPUS

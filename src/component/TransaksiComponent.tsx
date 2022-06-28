@@ -18,7 +18,16 @@ export const TransaksiComponent = (props: PropsType) => {
     backgroundColor = "#3D8461";
     color = "white";
     statusPembayaran = "Sudah Dibayar";
-  } 
+  }
+
+  const date = new Date();
+  const invoice =
+    "INV/" +
+    date.getFullYear() +
+    date.getMonth() +
+    date.getDate() +
+    "/BD/" +
+    date.getTime();
 
   return (
     <div className={transaksi.background}>
@@ -33,9 +42,7 @@ export const TransaksiComponent = (props: PropsType) => {
               {statusPembayaran}
             </button>
           </div>
-          <div className={transaksi.contentHeaderInvoice}>
-            {props.data.invoice}
-          </div>
+          <div className={transaksi.contentHeaderInvoice}>{invoice}</div>
         </div>
         <div className={transaksi.contentBody}>
           {/* Produk */}
@@ -51,7 +58,7 @@ export const TransaksiComponent = (props: PropsType) => {
               <div>{props.data.product.name}</div>
               <div>{props.data.product.keterangan}</div>
               <div className={transaksi.produkDetailHarga}>
-                {props.data.jumlah} Barang x Rp{" "}
+                {props.data.quantity} Barang x Rp{" "}
                 {numberWithDots(props.data.product.hargaJual)}
               </div>
             </div>
@@ -61,7 +68,7 @@ export const TransaksiComponent = (props: PropsType) => {
             <div>Total Belanja</div>
             <div>
               Rp{" "}
-              {numberWithDots(props.data.jumlah * props.data.product.hargaJual)}
+              {numberWithDots(props.data.quantity * props.data.product.hargaJual)}
             </div>
           </div>
         </div>
