@@ -77,9 +77,15 @@ export default function Transaksi() {
               {/* eslint-disable-next-line array-callback-return */}
               {ongoingDetail.map((data: any, index: number) => {
                 if (status === data.status) {
-                  return <TransaksiComponent key={index} data={data} />;
+                  return <TransaksiComponent key={index} data={data} status={status}/>;
                 } else if (status === 0) {
-                  return <TransaksiComponent key={index} data={data} />;
+                  return (
+                    <TransaksiComponent
+                      key={index}
+                      data={data}
+                      status={status}
+                    />
+                  );
                 }
               })}
             </div>

@@ -4,17 +4,18 @@ import { numberWithDots } from "../utils/utils";
 
 type PropsType = {
   data: any;
+  status: number;
 };
 
 export const TransaksiComponent = (props: PropsType) => {
   let backgroundColor = "black";
   let color = "black";
   let statusPembayaran = "Belum Dibayar";
-  if (props.data.status === 1) {
+  if (props.status === 0) {
     backgroundColor = "#CE0505";
     color = "white";
     statusPembayaran = "Belum Dibayar";
-  } else if (props.data.status === 2) {
+  } else if (props.status === 1) {
     backgroundColor = "#3D8461";
     color = "white";
     statusPembayaran = "Sudah Dibayar";
@@ -68,7 +69,9 @@ export const TransaksiComponent = (props: PropsType) => {
             <div>Total Belanja</div>
             <div>
               Rp{" "}
-              {numberWithDots(props.data.quantity * props.data.product.hargaJual)}
+              {numberWithDots(
+                props.data.quantity * props.data.product.hargaJual
+              )}
             </div>
           </div>
         </div>

@@ -112,21 +112,6 @@ export default function Keranjang() {
     }
   };
 
-  // useEffect(() => {
-  // console.log("keranjangs : ", keranjangs);
-  // console.log("checkedData : ", checkedData);
-  // console.log("selectedData : ", selectedData);
-  // const select = checkedData?.filter((data: boolean) => data === false);
-  // if (select?.length === 0) {
-  //   setCheckedAll(true);
-  //   console.log("setCheckedAll");
-  // }else{
-  //   setCheckedAll(false);
-  //   console.log("unsetCheckedAll");
-  // }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // });
-
   useEffect(() => {
     if (checkedAll) {
       setCheckedData(

@@ -65,10 +65,13 @@ export default function NavbarComponent() {
           </Link>
         </div>
         {/* MALE */}
+        {/* navbar.dropdownLeft yang mengatur hidenya */}
         <div className={`${navbar.body} ${navbar.col} ${navbar.dropdownLeft}`}>
+          {/* navbar.dropdownButton cursor:pointer, navbar.bodyButton mengatur text styling */}
           <button className={`${navbar.dropdownButton} ${navbar.bodyButton}`}>
             MALE
           </button>
+          {/* navbar.dropdownContent display:none, navbar.dropdownContentLeft mengatur jarak dan posisi*/}
           <div
             className={`${navbar.dropdownContent} ${navbar.dropdownContentLeft}`}
           >
@@ -216,6 +219,12 @@ export default function NavbarComponent() {
                 className={`${navbar.link} ${navbar.linkRight}`}
               >
                 PROFIL
+              </Link>
+              <Link
+                to="/pembayaran"
+                className={`${navbar.link} ${navbar.linkRight}`}
+              >
+                PEMBAYARAN
               </Link>
               <Link
                 to="/transaksi"

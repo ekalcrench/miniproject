@@ -48,22 +48,18 @@ export const masukKeranjang = async (
         );
         setBasket([...basket, postData]);
       } else {
-        window.localStorage.setItem(
-          "basket",
-          JSON.stringify(Array(postData))
-        );
+        window.localStorage.setItem("basket", JSON.stringify(Array(postData)));
         setBasket(Array(postData));
       }
       // Jikalau belum ada orderCart maka buat orderId
+      console.log("orderCart : ", orderCart);
       if (!orderCart) {
         axios
           .post(API_SERVER_ORDER + "Order", {
             userId: userData.id,
             status: "pending",
           })
-          .then((res) => {
-            console.log("Res POST Order : ", res.data);
-          })
+          .then((res) => console.log("Res POST Order : ", res.data))
           .catch((error) => console.log("Error POST Order : ", error));
       }
       Swal.fire({
@@ -78,20 +74,20 @@ export const masukKeranjang = async (
   }
 };
 
-export const getBasket = (setBasket:any) =>{
+export const getBasket = (setBasket: any) => {
   // basket
   const getBasket = window.localStorage.getItem("basket");
   if (getBasket) {
     setBasket(JSON.parse(getBasket));
   }
-  console.log("getBasket : ", getBasket)
-}
+};
 
-export const getOrderCart = async (userData:any, setOrderCart:any) => {
+export const getOrderCart = async (userData: any, setOrderCart: any) => {
   // Bikin POST Order status pending, GET dulu jika ada maka tidak usah dibikin
   try {
-    const res = await axios
-      .get(API_SERVER_ORDER + "Order/cart/" + userData.userId);
+    const res = await axios.get(
+      API_SERVER_ORDER + "Order/cart/" + userData.userId
+    );
     console.log("Res GET Order/cart/{userId} : ", res.data);
     console.log("{userId} : ", userData.userId);
     setOrderCart(res.data);

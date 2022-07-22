@@ -1,0 +1,120 @@
+.body {
+  font-family: "Roboto";
+  display: flex;
+  justify-content: center;
+  margin: 55px auto 50px;
+  width: 70%;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.bodyLeft {
+  width: 65%;
+}
+
+.bodyRight {
+  width: 35%;
+  box-shadow: 1px 2px 2px rgb(0, 0, 0, 16%);
+  border-radius: 10px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.judul {
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.judulLeft {
+  margin-bottom: 30px;
+}
+
+.judulLeftKeterangan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 2px 2px rgb(0, 0, 0, 16%);
+  border-radius: 10px;
+  height: 80px;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.content {
+  margin-top: 10px;
+  display: block;
+}
+
+.produk {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.produkImage {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.produkNama {
+  width: 50%;
+  line-height: 1.4;
+}
+
+.produkKuantitas {
+  width: 20%;
+  line-height: 1.4;
+}
+
+.imgProduk {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.pengiriman {
+  margin-top: 30px;
+}
+
+.pengirimanBackground {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 2px 2px rgb(0, 0, 0, 16%);
+  border-radius: 10px;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.pengirimanContent {
+  width: 100%;
+}
+
+.alamat {
+  margin-left: 25px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+.pengirimanKurir {
+  display: flex;
+  margin-left: 25px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.pembayaran{
+   margin-left: 25px;
+  font-size: 14px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+hr {
+  width: 100%;
+}

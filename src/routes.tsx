@@ -6,6 +6,7 @@ import SyaratdanKetentuan from "./pages/prasyarat/SyaratdanKetentuan";
 import KebijakanPrivasi from "./pages/prasyarat/KebijakanPrivasi";
 import Transaksi from "./pages/user/Transaksi";
 import FilterProduct from "./pages/FilterProduct";
+import Pembayaran from "./pages/user/Pembayaran";
 
 export const routes = [
   {
@@ -32,6 +33,11 @@ export const routes = [
     path: "/transaksi",
     name: "Transaksi",
     element: <Transaksi />,
+  },
+  {
+    path: "/pembayaran",
+    name: "Pembayaran",
+    element: <Pembayaran />,
   },
   {
     path: "/syaratdanketentuan",
